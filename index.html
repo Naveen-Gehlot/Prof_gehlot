@@ -1,0 +1,709 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Naveen Gehlot</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: full-bleed navy hero with a live EMG trace, stat tiles overlapping into light content cards, navy contact band to close. */
+:root {
+  --bg: #f4f6fb;
+  --card: #ffffff;
+  --fg: #0e1b2e;
+  --muted: #566580;
+  --line: #e0e5ef;
+  --link: #cf3f1f;
+  --coral: #ff5a3c;
+  --mint: #12b5a5;
+  --mint-text: #0a7d72;
+  --gold: #f2a516;
+  --gold-text: #8a5a00;
+  --coral-tint: #ffe8e2;
+  --mint-tint: #dcf5f1;
+  --gold-tint: #fdf0d3;
+  --band: #0a2540;
+  --band-2: #0f3a5e;
+  --on-band: #ffffff;
+  --on-band-muted: #b6c6dc;
+  --shadow: 0 10px 30px rgba(10, 37, 64, 0.10);
+  --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --font-body: "DM Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #09111f; --card: #111c31; --fg: #e8eef8; --muted: #9eabc3; --line: #233350;
+    --link: #ff8f75; --mint-text: #4fe0cf; --gold-text: #f5c25a;
+    --coral-tint: #3a1d1a; --mint-tint: #0f2c2d; --gold-tint: #342a10;
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #09111f; --card: #111c31; --fg: #e8eef8; --muted: #9eabc3; --line: #233350;
+  --link: #ff8f75; --mint-text: #4fe0cf; --gold-text: #f5c25a;
+  --coral-tint: #3a1d1a; --mint-tint: #0f2c2d; --gold-tint: #342a10;
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  background: var(--bg); color: var(--fg);
+  font-family: var(--font-body); font-size: 17px; line-height: 1.6;
+  margin: 0;
+  padding-inline: max(16px, env(safe-area-inset-left, 0px)) max(16px, env(safe-area-inset-right, 0px));
+}
+a { color: var(--link); text-underline-offset: 3px; }
+a:focus-visible, button:focus-visible, input:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; border-radius: 4px; }
+.wrap { max-width: 1120px; margin: 0 auto; }
+/* full-bleed bands */
+.bleed { margin-inline: calc(-1 * max(16px, env(safe-area-inset-left, 0px))) calc(-1 * max(16px, env(safe-area-inset-right, 0px))); padding-inline: max(16px, env(safe-area-inset-left, 0px)) max(16px, env(safe-area-inset-right, 0px)); }
+
+/* Top bar */
+.bar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: rgba(10, 37, 64, 0.94); backdrop-filter: blur(8px); }
+.bar .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 56px; }
+.mark { font-family: var(--font-display); font-weight: 800; font-size: 18px; color: var(--on-band); text-decoration: none; white-space: nowrap; letter-spacing: -0.01em; }
+.mark i { font-style: normal; color: var(--coral); }
+nav { display: flex; gap: 6px; overflow-x: auto; min-width: 0; scrollbar-width: none; }
+nav::-webkit-scrollbar { display: none; }
+nav a { font-size: 14px; font-weight: 500; color: var(--on-band-muted); text-decoration: none; padding: 7px 12px; border-radius: 100px; white-space: nowrap; }
+nav a:hover { color: var(--on-band); background: rgba(255, 255, 255, 0.1); }
+
+/* Hero */
+.hero { background: linear-gradient(160deg, var(--band) 0%, var(--band-2) 100%); color: var(--on-band); position: relative; overflow: hidden; padding-block: 72px 150px; }
+.hero canvas { position: absolute; left: 0; right: 0; bottom: 0; width: 100%; height: 150px; opacity: 0.9; pointer-events: none; }
+.hero .wrap { position: relative; display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 40px; align-items: center; }
+.kicker { display: inline-block; font-family: var(--font-mono); font-size: 12.5px; letter-spacing: 0.1em; text-transform: uppercase; color: #ffb4a3; margin: 0 0 18px; }
+h1 { font-family: var(--font-display); font-weight: 800; font-size: clamp(42px, 7.5vw, 84px); line-height: 0.98; letter-spacing: -0.03em; margin: 0; text-wrap: balance; }
+h1 em { font-style: normal; color: var(--coral); }
+.hero .sub { font-size: clamp(17px, 2vw, 20px); color: var(--on-band-muted); max-width: 34em; margin: 22px 0 0; }
+.hero .sub strong { color: var(--on-band); font-weight: 700; }
+.btns { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+.btn { font-family: var(--font-body); font-size: 15px; font-weight: 700; padding: 12px 22px; border-radius: 100px; border: 2px solid rgba(255, 255, 255, 0.35); color: var(--on-band); background: transparent; text-decoration: none; cursor: pointer; }
+.btn:hover { background: rgba(255, 255, 255, 0.12); }
+.btn.solid { background: var(--coral); border-color: var(--coral); color: #fff; }
+.btn.solid:hover { background: #ff7458; border-color: #ff7458; }
+.portrait { justify-self: center; position: relative; width: min(300px, 70vw); aspect-ratio: 1; }
+.portrait .ring { position: absolute; inset: 0; border-radius: 50%; background: conic-gradient(from 200deg, var(--coral), var(--gold), var(--mint), var(--coral)); padding: 6px; }
+.portrait .face { width: 100%; height: 100%; border-radius: 50%; background: var(--band); display: grid; place-items: center; overflow: hidden; }
+.portrait .face span { font-family: var(--font-display); font-weight: 800; font-size: 96px; letter-spacing: -0.04em; color: var(--on-band); }
+.portrait .face img { width: 100%; height: 100%; object-fit: cover; }
+.float { position: absolute; font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.04em; padding: 6px 12px; border-radius: 100px; background: #fff; color: #0a2540; box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3); white-space: nowrap; }
+.float.f1 { top: 8%; left: -14%; color: #b32f14; }
+.float.f2 { top: 52%; right: -16%; color: #086a60; }
+.float.f3 { bottom: 4%; left: -6%; color: #7a4f00; }
+
+/* Stats */
+.stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; margin-top: -64px; position: relative; z-index: 2; }
+.stat { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 22px 22px 20px; box-shadow: var(--shadow); }
+.stat b { display: block; font-family: var(--font-display); font-weight: 800; font-size: 52px; line-height: 1; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; }
+.stat span { display: block; margin-top: 8px; font-size: 14.5px; color: var(--muted); }
+.stat:nth-child(1) b { color: var(--coral); }
+.stat:nth-child(2) b { color: var(--mint); }
+.stat:nth-child(3) b { color: var(--gold); }
+.stat:nth-child(4) b { color: var(--fg); }
+
+/* Sections */
+section { padding-block: 80px 0; scroll-margin-top: 56px; }
+.head { margin-bottom: 32px; }
+.eyebrow { font-family: var(--font-mono); font-size: 12.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--link); margin: 0 0 10px; }
+h2 { font-family: var(--font-display); font-weight: 800; font-size: clamp(30px, 4.6vw, 48px); line-height: 1.05; letter-spacing: -0.025em; margin: 0; text-wrap: balance; max-width: 18em; }
+h3 { font-family: var(--font-display); font-weight: 600; font-size: 21px; line-height: 1.2; letter-spacing: -0.01em; margin: 0 0 8px; }
+p { margin: 0 0 1em; text-wrap: pretty; }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 18px; }
+
+/* About */
+.about { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 32px; align-items: start; }
+.about p { font-size: 18.5px; max-width: 60ch; }
+.tags { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; padding: 0; margin: 20px 0 0; }
+.tags li { font-size: 14px; font-weight: 500; padding: 6px 14px; border-radius: 100px; background: var(--mint-tint); color: var(--mint-text); }
+.tags li:nth-child(3n+2) { background: var(--coral-tint); color: var(--link); }
+.tags li:nth-child(3n) { background: var(--gold-tint); color: var(--gold-text); }
+.timeline { padding: 28px; }
+.timeline h3 { font-size: 15px; font-family: var(--font-mono); font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 18px; }
+.tl { list-style: none; margin: 0 0 28px; padding: 0 0 0 22px; position: relative; }
+.tl:last-child { margin-bottom: 0; }
+.tl::before { content: ""; position: absolute; left: 5px; top: 8px; bottom: 8px; width: 2px; background: var(--line); }
+.tl li { position: relative; padding-bottom: 18px; }
+.tl li:last-child { padding-bottom: 0; }
+.tl li::before { content: ""; position: absolute; left: -22px; top: 7px; width: 12px; height: 12px; border-radius: 50%; background: var(--card); border: 3px solid var(--coral); }
+.tl li.now::before { background: var(--coral); }
+.tl b { display: block; font-weight: 700; line-height: 1.35; }
+.tl span { display: block; font-size: 15px; color: var(--muted); }
+.tl time { display: block; font-family: var(--font-mono); font-size: 12.5px; color: var(--mint-text); margin-top: 2px; }
+
+/* Research */
+.themes { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.theme { padding: 26px; }
+.theme p { font-size: 15.5px; color: var(--muted); margin: 0; }
+.ico { width: 52px; height: 52px; border-radius: 14px; display: grid; place-items: center; margin-bottom: 18px; }
+.ico svg { width: 28px; height: 28px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.ico.c1 { background: var(--coral-tint); color: var(--link); }
+.ico.c2 { background: var(--mint-tint); color: var(--mint-text); }
+.ico.c3 { background: var(--gold-tint); color: var(--gold-text); }
+.theme.wide { grid-column: span 3; display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 0 20px; align-items: center; background: var(--band); color: var(--on-band); border-color: var(--band); }
+.theme.wide .ico { margin: 0; background: rgba(255, 255, 255, 0.12); color: #ffd27a; }
+.theme.wide p { color: var(--on-band-muted); }
+.theme.wide h3 { margin-bottom: 4px; }
+
+/* Publications */
+.picks { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; margin-bottom: 40px; }
+.pick { padding: 24px; display: flex; flex-direction: column; gap: 10px; box-shadow: var(--shadow); }
+.pick .v { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--mint-text); }
+.pick h3 { font-size: 19px; margin: 0; }
+.pick .a { font-size: 14px; color: var(--muted); margin: 0; margin-top: auto; }
+.pick .y { font-family: var(--font-display); font-weight: 800; font-size: 40px; line-height: 1; color: var(--coral); }
+.tools { display: flex; flex-wrap: wrap; gap: 12px 16px; align-items: center; }
+.filters { display: flex; flex-wrap: wrap; gap: 8px; }
+.filters button { font-family: var(--font-body); font-size: 14.5px; font-weight: 700; padding: 8px 16px; border-radius: 100px; cursor: pointer; background: var(--card); color: var(--fg); border: 1px solid var(--line); }
+.filters button[aria-pressed="true"] { background: var(--band); color: #fff; border-color: var(--band); }
+.search { flex: 1 1 240px; min-width: 0; font-family: var(--font-body); font-size: 15.5px; padding: 10px 16px; border-radius: 100px; background: var(--card); color: var(--fg); border: 1px solid var(--line); }
+.search::placeholder { color: var(--muted); }
+.count { font-family: var(--font-mono); font-size: 12.5px; color: var(--muted); margin: 14px 0 12px; }
+ol.pubs { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.pub { display: grid; grid-template-columns: 78px minmax(0, 1fr); gap: 16px; padding: 18px 20px; }
+.pub .meta { display: flex; flex-direction: column; gap: 8px; align-items: flex-start; }
+.tp { font-family: var(--font-mono); font-size: 11px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; padding: 3px 9px; border-radius: 100px; }
+.tp.j { background: var(--coral-tint); color: var(--link); }
+.tp.c { background: var(--mint-tint); color: var(--mint-text); }
+.tp.b { background: var(--gold-tint); color: var(--gold-text); }
+.pub .yr { font-family: var(--font-mono); font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.pub .ti { font-weight: 700; font-size: 17px; line-height: 1.35; margin: 0 0 4px; }
+.pub .au { font-size: 14.5px; color: var(--muted); margin: 0; }
+.pub .au strong { color: var(--fg); }
+.pub .ve { font-size: 14.5px; font-style: italic; margin: 3px 0 0; }
+.badge { display: inline-block; font-family: var(--font-mono); font-style: normal; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; padding: 2px 9px; border-radius: 100px; margin-left: 8px; vertical-align: 1px; }
+.badge.ur { background: var(--gold-tint); color: var(--gold-text); }
+.badge.acc { background: var(--mint-tint); color: var(--mint-text); }
+.empty { padding: 28px; text-align: center; color: var(--muted); }
+
+/* Patents */
+.two { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+.patent { padding: 26px; }
+.patent .au { font-size: 14.5px; color: var(--muted); }
+.patent p:last-child { margin: 0; font-size: 16px; }
+.pill { display: inline-block; font-family: var(--font-mono); font-size: 11.5px; letter-spacing: 0.08em; text-transform: uppercase; padding: 3px 10px; border-radius: 100px; background: var(--mint-tint); color: var(--mint-text); margin-bottom: 14px; }
+
+/* Teaching */
+.sup { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; margin-bottom: 32px; }
+.sup .card { padding: 24px; }
+.sup b { display: block; font-family: var(--font-display); font-weight: 800; font-size: 34px; line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 8px; }
+.sup .card:nth-child(1) b { color: var(--coral); }
+.sup .card:nth-child(2) b { color: var(--mint); }
+.sup .card:nth-child(3) b { color: var(--gold); }
+.sup span { font-size: 15.5px; color: var(--muted); }
+.two.top { align-items: start; }
+.courses { padding: 26px; }
+.courses h3 { margin-bottom: 14px; }
+.cloud { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; padding: 0; margin: 0; }
+.cloud li { font-size: 14.5px; padding: 6px 13px; border-radius: 100px; background: var(--bg); border: 1px solid var(--line); }
+.courses.alt .cloud li { background: var(--mint-tint); border-color: transparent; color: var(--mint-text); font-weight: 500; }
+
+/* Mentoring */
+.lvls { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; }
+.lv { padding: 24px; display: flex; flex-direction: column; gap: 6px; }
+.lvname { font-family: var(--font-mono); font-size: 12.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+.lv b { font-family: var(--font-display); font-weight: 800; font-size: 56px; line-height: 1; letter-spacing: -0.03em; }
+.lv:nth-child(1) b { color: var(--coral); }
+.lv:nth-child(2) b { color: var(--mint); }
+.lv:nth-child(3) b { color: var(--gold); }
+.lv:nth-child(4) b { color: var(--fg); }
+.rows { list-style: none; margin: 14px 0 0; padding: 0; display: grid; gap: 12px; }
+.rows li { display: grid; gap: 4px; font-size: 15px; line-height: 1.4; padding-top: 12px; border-top: 1px solid var(--line); }
+.st { justify-self: start; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; padding: 2px 9px; border-radius: 100px; }
+.st.g { background: var(--mint-tint); color: var(--mint-text); }
+.st.d { background: var(--gold-tint); color: var(--gold-text); }
+.st.m { background: var(--coral-tint); color: var(--link); }
+.st.p { background: var(--bg); color: var(--muted); border: 1px solid var(--line); }
+
+/* Startup */
+.startup { background: linear-gradient(160deg, var(--band) 0%, var(--band-2) 100%); color: var(--on-band); border-radius: 22px; padding: 40px; display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 36px; align-items: center; box-shadow: var(--shadow); }
+.startup h3 { font-size: clamp(34px, 5vw, 52px); font-weight: 800; letter-spacing: -0.03em; margin-bottom: 6px; }
+.startup .tag { font-family: var(--font-mono); font-size: 14px; color: #ffb4a3; margin-bottom: 16px; }
+.startup p { color: var(--on-band-muted); }
+.pill.gold { background: var(--gold); color: #3a2600; }
+.projs { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+.projs li { background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.16); border-radius: 16px; padding: 16px 18px; }
+.projs b { display: block; font-family: var(--font-display); font-size: 19px; color: #fff; margin-bottom: 2px; }
+.projs span { font-size: 15px; color: var(--on-band-muted); }
+
+/* Talks */
+.talks { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.talk { padding: 16px 20px; display: grid; grid-template-columns: 52px minmax(0, 1fr); gap: 4px 14px; align-items: start; }
+.talk .y { font-family: var(--font-mono); font-size: 13px; color: var(--muted); padding-top: 2px; }
+.talk .n { font-weight: 700; line-height: 1.35; }
+.talk small { display: block; font-weight: 400; color: var(--muted); font-size: 14px; margin-top: 2px; }
+.role { grid-column: 2; justify-self: start; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; padding: 3px 10px; border-radius: 100px; background: var(--coral-tint); color: var(--link); margin-top: 6px; }
+.role.k { background: var(--gold-tint); color: var(--gold-text); }
+.role.h { background: var(--mint-tint); color: var(--mint-text); }
+.also { margin-top: 20px; font-size: 15px; color: var(--muted); }
+
+/* Toolbox */
+.tools-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; }
+.tools-grid .card { padding: 22px; }
+.tools-grid h3 { font-size: 13px; font-family: var(--font-mono); font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em; color: var(--link); margin-bottom: 10px; }
+.tools-grid p { margin: 0; font-size: 15.5px; }
+
+/* Contact */
+.contact { background: linear-gradient(160deg, var(--band) 0%, var(--band-2) 100%); color: var(--on-band); margin-top: 96px; padding-block: 80px 40px; }
+.contact .wrap { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 40px; align-items: center; }
+.contact h2 { color: var(--on-band); }
+.contact .eyebrow { color: #ffb4a3; }
+.contact p { color: var(--on-band-muted); max-width: 32em; margin-top: 18px; }
+.mails { display: grid; gap: 12px; }
+.mail { background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.18); border-radius: 16px; padding: 16px 18px; display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: center; }
+.mail .for { flex: 0 0 100%; font-family: var(--font-mono); font-size: 11.5px; letter-spacing: 0.1em; text-transform: uppercase; color: #ffb4a3; }
+.mail code { font-family: var(--font-mono); font-size: 15px; overflow-wrap: anywhere; min-width: 0; flex: 1 1 auto; }
+.mail .btn { padding: 6px 16px; font-size: 13px; }
+.contact footer { margin-top: 64px; padding-top: 22px; border-top: 1px solid rgba(255, 255, 255, 0.18); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; font-family: var(--font-mono); font-size: 12.5px; color: var(--on-band-muted); }
+
+@media (max-width: 900px) {
+  .hero { padding-block: 48px 130px; }
+  .hero .wrap, .about, .contact .wrap { grid-template-columns: minmax(0, 1fr); }
+  .portrait { order: -1; width: min(220px, 60vw); justify-self: start; margin-left: 20px; }
+  .portrait .face span { font-size: 68px; }
+  .float.f1 { left: 62%; top: 0; } .float.f2 { right: auto; left: 68%; top: 48%; } .float.f3 { left: 55%; bottom: 0; }
+  .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .stat b { font-size: 42px; }
+  .themes, .picks, .sup, .tools-grid, .startup { grid-template-columns: minmax(0, 1fr); }
+  .lvls { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .startup { padding: 26px; }
+  .theme.wide { grid-column: auto; grid-template-columns: minmax(0, 1fr); }
+  .theme.wide .ico { margin-bottom: 14px; }
+  .two, .talks { grid-template-columns: minmax(0, 1fr); }
+  .pub { grid-template-columns: minmax(0, 1fr); gap: 8px; }
+  .pub .meta { flex-direction: row; align-items: center; flex-wrap: wrap; }
+  section { padding-block: 56px 0; }
+}
+@media (max-width: 560px) { .lvls { grid-template-columns: minmax(0, 1fr); } }
+</style>
+
+<div class="bar bleed">
+  <div class="wrap">
+    <a class="mark" href="#top">Naveen Gehlot<i>.</i></a>
+    <nav aria-label="Sections">
+      <a href="#about">About</a>
+      <a href="#research">Research</a>
+      <a href="#publications">Publications</a>
+      <a href="#teaching">Teaching</a>
+      <a href="#mentoring">Mentoring</a>
+      <a href="#startup">Startup</a>
+      <a href="#talks">Talks</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</div>
+
+<header class="hero bleed" id="top">
+  <canvas id="sig" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <div>
+      <span class="kicker">Assistant Professor · Electrical Engineering</span>
+      <h1>Dr. Naveen <em>Gehlot</em></h1>
+      <p class="sub">I build explainable, energy-efficient AI that reads electrical signals from the body and turns them into control for prosthetics, robots and healthcare tools. <strong>School of Electrical Engineering, Manipal Institute of Technology, MAHE.</strong></p>
+      <div class="btns">
+        <a class="btn solid" href="#publications">Explore my research</a>
+        <a class="btn" href="#contact">Get in touch</a>
+        <a class="btn" id="scholar" href="#" hidden target="_blank" rel="noopener">Google Scholar</a>
+        <a class="btn" id="linkedin" href="#" hidden target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+    <div class="portrait">
+      <div class="ring"><div class="face" id="face"><span>NG</span></div></div>
+      <span class="float f1">Explainable AI</span>
+      <span class="float f2">Spiking networks</span>
+      <span class="float f3">sEMG control</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="stats" id="stats"></div>
+
+  <section id="about">
+    <div class="head"><p class="eyebrow">About</p><h2>From muscle signals to machines that explain themselves</h2></div>
+    <div class="about">
+      <div>
+        <p>I joined the School of Electrical Engineering at Manipal Institute of Technology in July 2025 as an Assistant Professor. My Ph.D. in Electrical Engineering at MNIT Jaipur, completed in 2026, focused on surface electromyography (sEMG): recognising hand gestures from muscle activity and using them to drive robotic hands and prosthetic devices.</p>
+        <p>A recurring question in my work is why a model made a given decision. I use explainable AI to choose features and check models, and spiking neural networks to cut the energy cost of real-time control on small devices. In 2025 I spent three months as a visiting research fellow at Western Norway University of Applied Sciences in Bergen.</p>
+        <ul class="tags" aria-label="Research interests">
+          <li>Artificial Intelligence</li><li>Explainable AI</li><li>Human–Machine Interaction</li><li>Spiking Neural Networks</li><li>Intelligent Healthcare Systems</li><li>Robotic Control using Biosignals</li><li>Edge AI for Biomedical Devices</li>
+        </ul>
+      </div>
+      <div class="card timeline">
+        <h3>Experience</h3>
+        <ul class="tl">
+          <li class="now"><b>Assistant Professor</b><span>School of Electrical Engineering, MIT Manipal, MAHE</span><time>July 2025 – present</time></li>
+          <li><b>Visiting Research Fellow</b><span>Western Norway University of Applied Sciences, Bergen</span><time>April – June 2025</time></li>
+        </ul>
+        <h3>Education</h3>
+        <ul class="tl">
+          <li><b>Ph.D., Electrical Engineering</b><span>MNIT Jaipur · CGPA 9.3 / 10</span><time>2022 – 2026</time></li>
+          <li><b>M.Tech, Control Systems</b><span>MBM Engineering College, Jodhpur · 78%</span><time>2018 – 2021</time></li>
+          <li><b>B.Tech, Electrical and Electronics Engineering</b><span>Rajasthan Technical University, Kota · 75.92%</span><time>2012 – 2016</time></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="research">
+    <div class="head"><p class="eyebrow">Research</p><h2>Five lines of work</h2></div>
+    <div class="themes">
+      <article class="card theme">
+        <div class="ico c1"><svg viewBox="0 0 24 24"><circle cx="10" cy="10" r="6"/><path d="M15 15l6 6"/><path d="M7.5 12v-2M10 12V7.5M12.5 12v-1"/></svg></div>
+        <h3>Explainable biosignal analysis</h3>
+        <p>Fusing explainability methods to select sEMG features for hand gesture recognition, with XAI also applied to EEG limb-task identification and clinical risk prediction.</p>
+      </article>
+      <article class="card theme">
+        <div class="ico c2"><svg viewBox="0 0 24 24"><path d="M6 21v-9a1.5 1.5 0 013 0v-6a1.5 1.5 0 013 0v5a1.5 1.5 0 013 0v1a1.5 1.5 0 013 0v6a5 5 0 01-5 5h-3a5 5 0 01-4-2z" transform="translate(-1 -3)"/></svg></div>
+        <h3>Hand gesture recognition</h3>
+        <p>1D convolutional architecture search, L-SHADE optimised learning and a mixture-of-experts Extra Trees model for recognising gestures from sEMG.</p>
+      </article>
+      <article class="card theme">
+        <div class="ico c3"><svg viewBox="0 0 24 24"><circle cx="5" cy="6" r="2.5"/><circle cx="5" cy="18" r="2.5"/><circle cx="19" cy="12" r="2.5"/><path d="M7.4 7l3.6 3 2-4 2 8 2-1.5M7.4 17l3.6-3"/></svg></div>
+        <h3>Spiking neural networks</h3>
+        <p>Energy-efficient frameworks for real-time robotic arm manipulation, plasticity-based learning, neurotransmitter modulation and image classification.</p>
+      </article>
+      <article class="card theme">
+        <div class="ico c1"><svg viewBox="0 0 24 24"><path d="M4 20h7M7.5 20v-4"/><circle cx="7.5" cy="14.5" r="1.8"/><path d="M8.7 13.2L14 8"/><circle cx="15.2" cy="6.8" r="1.8"/><path d="M16.9 6.2L20.5 5M16.9 7.6l3.3 2"/></svg></div>
+        <h3>Robotics and prosthetics</h3>
+        <p>Controlling a robotic hand from sEMG gestures, a wearable sEMG prosthesis, a 3-DOF robotic arm and a hand anthropometry survey for ergonomic and bionic design.</p>
+      </article>
+      <article class="card theme">
+        <div class="ico c2"><svg viewBox="0 0 24 24"><path d="M2 12h5l2.5-6.5 4 13 2.5-6.5h6"/></svg></div>
+        <h3>Healthcare AI</h3>
+        <p>COVID-19 and paediatric chest X-ray classification, knee abnormality analysis from sEMG, chronic kidney disease risk and musculoskeletal disorders in garment workers.</p>
+      </article>
+      <article class="card theme">
+        <div class="ico c3"><svg viewBox="0 0 24 24"><path d="M3 18l5-6 4 3 5-8 4 4"/><path d="M3 21h18"/></svg></div>
+        <h3>Collaborations</h3>
+        <p>Neural forecasting for wind and solar power, deep reinforcement learning for autonomous driving and neural network models for concrete strength testing.</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="publications">
+    <div class="head"><p class="eyebrow">Publications</p><h2>Selected work and the full list</h2></div>
+    <div class="picks">
+      <article class="card pick">
+        <span class="y">2024</span><span class="v">Engineering Applications of AI</span>
+        <h3>Explainable AI fusion framework for sEMG feature selection in hand gesture recognition</h3>
+        <p class="a">Gehlot, Jena, Vijayvargiya, Kumar</p>
+      </article>
+      <article class="card pick">
+        <span class="y">2025</span><span class="v">Scientific Reports</span>
+        <h3>L-SHADE optimised learning framework for sEMG hand gesture recognition</h3>
+        <p class="a">Gehlot, Vijayvargiya, Jena, Kumar, Hans, Harjule</p>
+      </article>
+      <article class="card pick">
+        <span class="y">2026</span><span class="v">Engineering Applications of AI</span>
+        <h3>Spiking neural network framework for energy-efficient real-time robotic arm manipulation</h3>
+        <p class="a">Saini, Gehlot, Kumar, Hans, Chaudhary, Sharma</p>
+      </article>
+    </div>
+    <div class="tools">
+      <div class="filters" role="group" aria-label="Filter by type" id="filters"></div>
+      <input class="search" id="q" type="search" placeholder="Search title, author or venue" aria-label="Search publications">
+    </div>
+    <p class="count" id="count" aria-live="polite"></p>
+    <ol class="pubs" id="pubs"></ol>
+  </section>
+
+  <section id="patents">
+    <div class="head"><p class="eyebrow">Patents</p><h2>Two published patents</h2></div>
+    <div class="two">
+      <article class="card patent">
+        <span class="pill">Published</span>
+        <h3>A Surface Electromyography-based Wearable Prosthesis</h3>
+        <p class="au">Naveen Gehlot, Divyansh Ramola, Mahaveer Jeenger, Rajesh Kumar, Surender Hans</p>
+        <p>A wireless wearable robotic prosthesis driven by sEMG, developed with an undergraduate student.</p>
+      </article>
+      <article class="card patent">
+        <span class="pill">Published</span>
+        <h3>Automatic Dispenser for Spices and Liquid</h3>
+        <p class="au">Lakshaya Kochar, Naveen Gehlot, Rajesh Kumar</p>
+        <p>An automatic food-making system that dispenses spices and liquids according to an initial instruction, developed with an undergraduate student.</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="teaching">
+    <div class="head"><p class="eyebrow">Teaching</p><h2>Courses I teach and want to develop</h2></div>
+    <div class="two top">
+      <div class="card courses">
+        <h3>Taught or assisted</h3>
+        <ul class="cloud">
+          <li>Cyber Physical Systems Design</li><li>Introduction to Cyber Physical Systems</li><li>Intelligent Control Techniques</li><li>Machine Learning and Data Analytics</li><li>Artificial Intelligence</li><li>Analog Electronics Circuits</li><li>Advanced Programming Design</li><li>C++ Programming</li><li>Python Programming</li><li>Sensor and Circuits Laboratory</li><li>Microcontroller Laboratory</li><li>Analog System Design Laboratory</li>
+        </ul>
+      </div>
+      <div class="card courses alt">
+        <h3>Keen to teach and develop</h3>
+        <ul class="cloud">
+          <li>Machine Learning for Engineers</li><li>Introduction to Healthcare Robotics</li><li>Human–Machine Interaction</li><li>Internet of Things (IoT)</li><li>Cyber Physical Systems (Industry 4.0)</li><li>Signal Processing</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="mentoring">
+    <div class="head"><p class="eyebrow">Mentoring</p><h2>Students I guide and have guided</h2></div>
+    <div class="lvls">
+      <article class="card lv">
+        <span class="lvname">Ph.D.</span>
+        <b>1</b>
+        <ul class="rows">
+          <li><span class="st g">Guiding</span><span>1 scholar at MIT Manipal</span></li>
+        </ul>
+      </article>
+      <article class="card lv">
+        <span class="lvname">M.Tech</span>
+        <b>5</b>
+        <ul class="rows">
+          <li><span class="st g">Guiding</span><span>2 students at MIT Manipal</span></li>
+          <li><span class="st m">Mentored</span><span>3 dissertations at MNIT Jaipur</span></li>
+        </ul>
+      </article>
+      <article class="card lv">
+        <span class="lvname">B.Tech</span>
+        <b>17+</b>
+        <ul class="rows">
+          <li><span class="st g">Guiding</span><span>1 student at MIT Manipal</span></li>
+          <li><span class="st d">Guided</span><span>5 projects at MIT Manipal</span></li>
+          <li><span class="st m">Mentored</span><span>11+ projects at MNIT Jaipur</span></li>
+        </ul>
+      </article>
+      <article class="card lv">
+        <span class="lvname">Project mentoring</span>
+        <b>2</b>
+        <ul class="rows">
+          <li><span class="st p">Patent</span><span>Wearable sEMG prosthesis, built with an undergraduate student</span></li>
+          <li><span class="st p">Patent</span><span>Automatic spice and liquid dispenser, built with an undergraduate student</span></li>
+        </ul>
+      </article>
+    </div>
+    <p class="also">Open to Ph.D., M.Tech and B.Tech students interested in biosignals, explainable AI, spiking neural networks and robotics. <a href="#contact">Write to me</a>.</p>
+  </section>
+
+  <section id="startup">
+    <div class="head"><p class="eyebrow">Startup</p><h2>Founding member of PerksPlus</h2></div>
+    <article class="startup">
+      <div>
+        <span class="pill gold">Founding member</span>
+        <h3>PerksPlus</h3>
+        <p class="tag">Sensing the real world. Acting before the damage.</p>
+        <p>PerksPlus looks for everyday problems and solves them with automation, cyber-physical systems and real-time intelligence, combining hardware, software and cloud. Its goal is preventive automation that detects problems before they cause harm.</p>
+        <div class="btns"><a class="btn solid" href="https://www.perksplus.online/" target="_blank" rel="noopener">Visit perksplus.online</a></div>
+      </div>
+      <ul class="projs">
+        <li><b>TerraSense</b><span>Detects potholes, speed breakers and road surface problems in real time and warns approaching drivers.</span></li>
+        <li><b>P2P</b><span>Silent communication based on subvocal articulation.</span></li>
+        <li><b>Match Pulse</b><span>A further PerksPlus project.</span></li>
+      </ul>
+    </article>
+  </section>
+
+  <section id="talks">
+    <div class="head"><p class="eyebrow">Talks and service</p><h2>Lectures, workshops and organising</h2></div>
+    <div class="talks" id="talks-list"></div>
+    <p class="also"><b>Also attended:</b> Universal Human Values in Technical Education (FDP, AICTE) · Conference Organizers Education Workshop 2026 (IEEE Mangalore Subsection) · Empowering Educators 2026 (MAHE Manipal) · Next-Gen AI: Transformers &amp; Reinforcement Learning 2025 (MNIT Jaipur) · IEEE PEDES 2022.</p>
+  </section>
+
+  <section id="skills">
+    <div class="head"><p class="eyebrow">Toolbox</p><h2>Hardware, languages and frameworks</h2></div>
+    <div class="tools-grid">
+      <div class="card"><h3>Hardware</h3><p>BIOPAC MP150, EMG sensors, Arduino boards, PLC (Siemens S7-1200, Allen-Bradley)</p></div>
+      <div class="card"><h3>Languages</h3><p>C/C++, Python, MATLAB</p></div>
+      <div class="card"><h3>Frameworks</h3><p>NumPy, Pandas, Matplotlib, scikit-learn, Keras, TensorFlow, PyTorch</p></div>
+      <div class="card"><h3>Tools</h3><p>LaTeX, Arduino IDE, Anaconda, Shell, Spyder, VS Code, MS Office, AcqKnowledge, SCADA, Modelica</p></div>
+    </div>
+  </section>
+</main>
+
+<section class="contact bleed" id="contact">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow">Contact</p>
+      <h2>Let's build something together</h2>
+      <p>I am happy to hear from students, collaborators and organisers about biosignals, explainable AI and spiking neural networks. School of Electrical Engineering, Manipal Institute of Technology, Manipal Academy of Higher Education.</p>
+    </div>
+    <div class="mails">
+      <div class="mail"><span class="for">Institute</span><code>naveen.gehlot@manipal.edu</code><button class="btn" type="button" data-copy="naveen.gehlot@manipal.edu">Copy</button></div>
+      <div class="mail"><span class="for">Personal</span><code>gehlotnaveen27@gmail.com</code><button class="btn" type="button" data-copy="gehlotnaveen27@gmail.com">Copy</button></div>
+    </div>
+  </div>
+  <div class="wrap"><footer style="grid-column:1/-1">
+    <span>© 2026 Naveen Gehlot</span>
+    <span>Explainable AI · Spiking neural networks · Biosignals</span>
+  </footer></div>
+</section>
+
+<script>
+/* Fill these in to show the hero buttons and your photo. */
+var LINKS = { scholar: "", linkedin: "" };
+var PHOTO = "";
+["scholar", "linkedin"].forEach(function (k) {
+  var el = document.getElementById(k);
+  if (LINKS[k]) { el.href = LINKS[k]; el.hidden = false; }
+});
+if (PHOTO) document.getElementById("face").innerHTML = '<img src="' + PHOTO + '" alt="Dr. Naveen Gehlot">';
+
+var PUBS = [
+ {t:"j",y:"2024",a:"Naveen Gehlot, Ashutosh Jena, Ankit Vijayvargiya, Rajesh Kumar",ti:"Surface electromyography-based explainable Artificial Intelligence fusion framework for feature selection of hand gesture recognition",v:"Engineering Applications of Artificial Intelligence 137, 109119"},
+ {t:"j",y:"",a:"Naveen Gehlot, Rajesh Kumar, Surender Hans, Pilani Nkomozepi",ti:"1D Convolutional Neural Architecture Search for sEMG Hand Gesture Recognition",v:"SN Computer Sciences"},
+ {t:"j",y:"2025",a:"Naveen Gehlot, Ankit Vijayvargiya, Ashutosh Jena, Rajesh Kumar, Surender Hans, Priyanka Harjule",ti:"L-SHADE Optimized Learning Framework for sEMG Hand Gesture Recognition",v:"Scientific Reports 15(1), 36562"},
+ {t:"j",y:"",a:"Naveen Gehlot, Ashutosh Jena, Rajesh Kumar, Mahipal Bukya, Surender Hans, Pilani Nkomozepi",ti:"Mixture of Experts Extra Tree-Based sEMG Hand Gesture Recognition",v:"Scientific Reports",s:"acc"},
+ {t:"j",y:"",a:"Naveen Gehlot, Mahaveer Jeenger, Ashutosh Jena, Rajesh Kumar, Surender Hans, Gunjan Soni, Maneesh Singh",ti:"Intelligent Control of Robotic Hand using Surface Electromyography Based Gesture Recognition",v:"Journal of Dynamics, Monitoring and Diagnostics",s:"ur"},
+ {t:"j",y:"",a:"Naveen Gehlot, Nitin Jangir, Rajesh Kumar, Surender Hans",ti:"Ergonomic and Bionic Design Insights from a Hand Anthropometry Survey",v:"Ergonomics",s:"ur"},
+ {t:"j",y:"2024",a:"Ankit Vijayvargiya, Aparna Sinha, Naveen Gehlot, Ashutosh Jena, Rajesh Kumar, Kieran Moran",ti:"S-WD-EEMD: A hybrid framework for imbalanced sEMG signal analysis in diagnosis of human knee abnormality",v:"PLOS ONE 19(5), e0301263"},
+ {t:"j",y:"2024",a:"Ashutosh Jena, Naveen Gehlot, Rajesh Kumar, Ankit Vijayvargiya, Mahipal Bukya",ti:"supDQN: Supervised Rewarding Strategy Driven Deep Q-Network for sEMG Signal Decontamination",v:"IEEE Access"},
+ {t:"j",y:"2024",a:"Harshit Sandilya, Naveen Gehlot, Rajesh Kumar, Mahipal Bukya",ti:"Generating Topic-Agnostic Conversations with LLMs",v:"IEEE Access"},
+ {t:"j",y:"",a:"Sushant Yadav, Samarth Saxena, Naveen Gehlot, Santosh Chaudhary, Rajesh Kumar",ti:"Augmented Reality with Spiking Neural Networks on Sudoku Puzzle",v:"IEEE Signal Processing Letters",s:"ur"},
+ {t:"j",y:"2026",a:"Ashok Kumar Saini, Naveen Gehlot, Rajesh Kumar, Surender Hans, Santosh Chaudhary, Gulshan Sharma",ti:"Spiking Neural Network-Based Energy-Efficient Framework for Real-Time Robotic Arm Manipulation",v:"Engineering Applications of Artificial Intelligence 167, 113805"},
+ {t:"j",y:"2026",a:"Sushant Yadav, Naveen Gehlot, Santosh Chaudhary, Rajesh Kumar, Pilani Nkomozepi",ti:"Computational Frameworks, Learning, and Apps. of SNNs: A Narrative Review",v:"Journal of Membrane Computing"},
+ {t:"j",y:"",a:"Sushant Yadav, Naveen Gehlot, Santosh Chaudhary, Rajesh Kumar, Pilani Nkomozepi",ti:"A-STDP: Dynamic Plasticity-Based Spiking Neural Networks for Image Classification",v:"Neural Computing and Applications",s:"ur"},
+ {t:"j",y:"",a:"Swati, Naveen Gehlot, Rajesh Kumar, Ravinder Nagara, Rajesh Gupta",ti:"Development of an Artificial Neural Network Model for On-Site Prediction of Concrete Compressive Strength Using Non-Destructive Testing",v:"Journal of Building Engineering",s:"ur"},
+ {t:"j",y:"",a:"Abhimanyu Singh, D. Saxena, Rajesh Kumar, Naveen Gehlot",ti:"Adaptive Clipping Strategy for Proximal Policy Optimization in Autonomous Vehicle Lane Navigation",v:"IEEE Transactions on Industry Applications",s:"ur"},
+ {t:"j",y:"2026",a:"Bharat Singh, Suchit Patel, Ankit Vijayvargiya, Rajesh Kumar, Naveen Gehlot",ti:"BAYES-GAIT: A Bayesian Deep Neural Network for Continuous Gait Reference Trajectory Generation Using an Enhanced Loss Function",v:"IEEE Access"},
+ {t:"j",y:"2026",a:"Sushant Yadav, Naveen Gehlot, Santosh Chaudhary, Rajesh Kumar, Pilani Nkomozepi",ti:"Synaptic neurotransmitter concentration modulation during learning in bio-inspired spiking neural network",v:"Cognitive Neurodynamics"},
+ {t:"c",y:"2024",a:"Naveen Gehlot, Rajesh Kumar",ti:"DWMS-HGR: 1D CNN for Hand Gesture Recognition on Normalized sEMG Signals with Sliding Window",v:"International Conference on Data Science and Applications, Springer, Singapore"},
+ {t:"c",y:"2024",a:"Naveen Gehlot, Suryansh Malik, Ashutosh Jena, Ankit Vijayvargiya, Rajesh Kumar",ti:"XAI-Driven sEMG Feature Analysis for Hand Gestures",v:"Third International Conference on Power, Control and Computing Technologies (ICPC2T), IEEE"},
+ {t:"c",y:"2023",a:"Naveen Gehlot, Ankit Vijayvargiya, Ashutosh Jena, Rajesh Kumar",ti:"sEMG-Based Classification of Finger Movement with Machine Learning",v:"International Conference on Computer, Electronics & Electrical Engineering & their Applications (IC2E3), IEEE"},
+ {t:"c",y:"2023",a:"Naveen Gehlot, Ankit Vijayvargiya, Rajesh Kumar, Akhil Ranjan Garg, Usha Desai",ti:"C-LVQ: A Convolutional Neural Network with Learning Vector Quantization for the Diagnosis of Covid-19",v:"20th IEEE India Council International Conference (INDICON)"},
+ {t:"c",y:"2023",a:"Naveen Gehlot, Khushi Soni, Priyansh Kothari, Ankit Vijayvargiya, Rajesh Kumar",ti:"AI-Enhanced Diagnosis: Pediatric Chest X-ray Classification for Bronchiolitis and Pneumonia",v:"Seventh International Conference on Image Information Processing (ICIIP), IEEE"},
+ {t:"c",y:"2024",a:"Ashutosh Jena, Padmaja Sharma, Naveen Gehlot, Ankit Vijayvargiya, Rajesh Kumar",ti:"Efficient Contaminant Identification in sEMG Signals using Machine Learning",v:"Third International Conference on Power, Control and Computing Technologies (ICPC2T), IEEE, pp. 25–30"},
+ {t:"c",y:"2023",a:"Ashutosh Jena, Krishna Baberwal, Naveen Gehlot, Rajesh Kumar",ti:"Impact of feature selection on sEMG signal classification",v:"14th International Conference on Computing Communication and Networking Technologies (ICCCNT), IEEE, pp. 1–6"},
+ {t:"c",y:"2023",a:"Ashok Kumar Saini, Naveen Gehlot, Ankit Vijayvargiya, Rajesh Kumar, Usha Desai",ti:"Design Development and Analysis of 3-DOF Robotic Arm",v:"9th IEEE India International Conference on Power Electronics (IICPE), pp. 1–6"},
+ {t:"c",y:"2023",a:"Ankit Vijayvargiya, Aarsh Raghav, Anchal Bhardwaj, Naveen Gehlot, Rajesh Kumar",ti:"A LIME-Based Explainable Machine Learning Technique for the Risk Prediction of Chronic Kidney Disease",v:"International Conference on Computer, Electronics & Electrical Engineering & their Applications (IC2E3), IEEE, pp. 1–6"},
+ {t:"c",y:"2024",a:"Ankit Vijayvargiya, Shruti Paliwal, Naveen Gehlot, Rajesh Kumar, Kieran Moran",ti:"AI-Powered Early Detection of Musculoskeletal Disorders in Garment Industry Operators",v:"International Conference on Advancements in Smart, Secure and Intelligent Computing (ASSIC), IEEE, pp. 1–7"},
+ {t:"c",y:"2024",a:"Ashok Kumar Saini, Rajesh Kumar, Naveen Gehlot, Seema Verma",ti:"Enhanced Image Classification through Customized Convolutional Spiking Neural Network",v:"Parul International Conference on Engineering and Technology (PICET), IEEE, pp. 1–6"},
+ {t:"c",y:"2025",a:"Bikash Pandit, Naveen Gehlot, Rajesh Kumar, Santosh Chaudhary",ti:"Continuous-Time Recurrent Neural Networks for Wind Power Prediction",v:"5th IEEE International Conference on Sustainable Energy and Future Electric Transportation (SeFet 2025)",s:"acc"},
+ {t:"c",y:"2026",a:"Bikash Pandit, Santosh Chaudhary, Rajesh Kumar, Naveen Gehlot",ti:"Probabilistic Solar Energy Forecasting Using Liquid-Time Constant Neural Network",v:"6th IEEE International Conference on Sustainable Energy and Future Electric Transportation (SeFet 2026)"},
+ {t:"b",y:"",a:"Naveen Gehlot, Ankit Vijayvargiya, Rajesh Kumar, Akhil Ranjan Garg, Nilanjan Dey",ti:"1D Self-Organizing Feature Map Technique for Diagnosis of COVID-19 Infection",v:"IoT and Blockchain for Sustainable Next-Generation Systems",s:"acc"},
+ {t:"b",y:"",a:"Naveen Gehlot, Sahil Meena, Rajesh Kumar, Priyanka Harjule",ti:"XAI-Enhanced EEG Analysis for Limb Task Identification",v:"Artificial Intelligence-based Signal Processing for Brain Activity Analysis, CRC Press"}
+];
+var TYPES = [["all","All"],["j","Journals"],["c","Conferences"],["b","Chapters"]];
+var TNAME = { j: "Journal", c: "Conference", b: "Chapter" };
+var state = { type: "all", q: "" };
+function count(t) { return PUBS.filter(function (p) { return p.t === t; }).length; }
+function esc(s) { return s.replace(/&/g, "&amp;").replace(/</g, "&lt;"); }
+
+document.getElementById("stats").innerHTML = [
+  [count("j"), "Journal articles, including papers under review"],
+  [count("c"), "Conference papers"],
+  [count("b"), "Book chapters"],
+  [2, "Published patents"]
+].map(function (s) { return '<div class="stat"><b>' + s[0] + '</b><span>' + s[1] + '</span></div>'; }).join("");
+
+function render() {
+  var q = state.q.trim().toLowerCase();
+  var rows = PUBS.filter(function (p) {
+    if (state.type !== "all" && p.t !== state.type) return false;
+    return !q || (p.a + " " + p.ti + " " + p.v).toLowerCase().indexOf(q) !== -1;
+  });
+  var html = rows.map(function (p) {
+    var badge = p.s === "ur" ? '<span class="badge ur">Under review</span>' : p.s === "acc" ? '<span class="badge acc">Accepted</span>' : "";
+    var yr = p.y ? '<span class="yr">' + p.y + '</span>' : "";
+    return '<li class="card pub"><div class="meta"><span class="tp ' + p.t + '">' + TNAME[p.t] + '</span>' + yr + '</div><div>' +
+      '<p class="ti">' + esc(p.ti) + '</p>' +
+      '<p class="au">' + esc(p.a).replace(/Naveen Gehlot/g, "<strong>Naveen Gehlot</strong>") + '</p>' +
+      '<p class="ve">' + esc(p.v) + badge + '</p></div></li>';
+  }).join("");
+  document.getElementById("pubs").innerHTML = html || '<li class="card empty">No publications match that search.</li>';
+  document.getElementById("count").textContent = rows.length + " of " + PUBS.length + " shown";
+}
+(function () {
+  var box = document.getElementById("filters");
+  TYPES.forEach(function (t) {
+    var n = t[0] === "all" ? PUBS.length : count(t[0]);
+    var b = document.createElement("button");
+    b.type = "button"; b.textContent = t[1] + " " + n;
+    b.setAttribute("aria-pressed", t[0] === "all" ? "true" : "false");
+    b.addEventListener("click", function () {
+      state.type = t[0];
+      Array.prototype.forEach.call(box.children, function (c) { c.setAttribute("aria-pressed", c === b ? "true" : "false"); });
+      render();
+    });
+    box.appendChild(b);
+  });
+  document.getElementById("q").addEventListener("input", function (e) { state.q = e.target.value; render(); });
+  render();
+})();
+
+var TALKS = [
+ ["2026","Explainable AI (XAI)","FDP · MNIT Jaipur","Keynote","k"],
+ ["2026","Spiking Neural Network: Architecture & Applications","Expert Lecture Series on Bioinspired & Evolvable Systems · SEE MIT Manipal","Expert lecture","k"],
+ ["2026","CISCON 2026","Conference · MAHE Manipal","Co-convener",""],
+ ["2025","Applied Python for Engineers: Hands-on Workshop","FDP · UIET Rohtak","Keynote","k"],
+ ["2025","Optimization for Deep Learning Models","FDP · MNIT Jaipur","Keynote","k"],
+ ["2025","Machine Learning Basic to Beyond","FDP","Hands-on expert","h"],
+ ["2024","Research Tools and Techniques","Workshop · APEX University Jaipur","Hands-on expert","h"],
+ ["2024","Machine Learning: Concept and Implementation (MLCI)","Workshop","Hands-on expert","h"],
+ ["2024","LaTeX: A Tool for Technical Writing, Presentation and Scientific Research","Workshop · Manipal Bangalore","Hands-on expert","h"],
+ ["2023","Advanced Optimization Techniques (AOT)","Workshop","Hands-on expert","h"],
+ ["2023","Data Driven Analytics with ML","Workshop","Hands-on expert","h"],
+ ["2022","ML for Non-Coders","Workshop","Hands-on expert","h"]
+];
+document.getElementById("talks-list").innerHTML = TALKS.map(function (t) {
+  return '<div class="card talk"><span class="y">' + t[0] + '</span><span class="n">' + esc(t[1]) + '<small>' + esc(t[2]) + '</small></span><span class="role ' + t[4] + '">' + t[3] + '</span></div>';
+}).join("");
+
+Array.prototype.forEach.call(document.querySelectorAll("[data-copy]"), function (btn) {
+  btn.addEventListener("click", function () {
+    var text = btn.getAttribute("data-copy");
+    function reset() { setTimeout(function () { btn.textContent = "Copy"; }, 1600); }
+    function done() { btn.textContent = "Copied"; reset(); }
+    function fallback() {
+      var r = document.createRange(); r.selectNodeContents(btn.previousElementSibling);
+      var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+      btn.textContent = "Selected"; reset();
+    }
+    try { navigator.clipboard.writeText(text).then(done, fallback); } catch (e) { fallback(); }
+  });
+});
+
+/* Hero trace: simulated sEMG with threshold-crossing spikes */
+(function () {
+  var cv = document.getElementById("sig"), ctx = cv.getContext("2d");
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)");
+  var W = 0, H = 0, STEP = 2, buf = [], t = 0, raf = 0;
+  function gauss() { return (Math.random() + Math.random() + Math.random() - 1.5) * 1.4; }
+  function next() { t += 1; var env = Math.max(0, Math.sin(t / 58) * Math.sin(t / 24 + 1)); return gauss() * (0.07 + Math.pow(env, 1.4)); }
+  function size() {
+    var dpr = window.devicePixelRatio || 1;
+    W = cv.clientWidth; H = cv.clientHeight;
+    cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    var n = Math.ceil(W / STEP) + 2;
+    while (buf.length < n) buf.push(next());
+    while (buf.length > n) buf.shift();
+  }
+  function draw() {
+    ctx.clearRect(0, 0, W, H);
+    var mid = H * 0.52, amp = H * 0.4;
+    ctx.lineJoin = "round"; ctx.lineWidth = 1.4; ctx.strokeStyle = "rgba(120, 235, 220, 0.85)";
+    ctx.beginPath();
+    for (var i = 0; i < buf.length; i++) {
+      var y = mid - Math.max(-1, Math.min(1, buf[i])) * amp;
+      if (i === 0) ctx.moveTo(0, y); else ctx.lineTo(i * STEP, y);
+    }
+    ctx.stroke();
+    ctx.lineWidth = 2; ctx.strokeStyle = "rgba(255, 110, 80, 0.95)";
+    ctx.beginPath();
+    for (var j = 0; j < buf.length; j++) {
+      if (Math.abs(buf[j]) > 0.36) { ctx.moveTo(j * STEP + 0.5, H - 26); ctx.lineTo(j * STEP + 0.5, H - 8); }
+    }
+    ctx.stroke();
+  }
+  function frame() { for (var k = 0; k < 3; k++) { buf.shift(); buf.push(next()); } draw(); raf = requestAnimationFrame(frame); }
+  function start() { cancelAnimationFrame(raf); size(); if (reduce.matches) draw(); else raf = requestAnimationFrame(frame); }
+  if (window.ResizeObserver) new ResizeObserver(start).observe(cv); else window.addEventListener("resize", start);
+  if (reduce.addEventListener) reduce.addEventListener("change", start);
+  for (var p = 0; p < 400; p++) buf.push(next());
+  start();
+})();
+</script>
+
+</body></html>
